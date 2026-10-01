@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Screening System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top-nav-bar">
+            <a href="hr-dashboard.html" class="dashboard-link-btn">
+                📊 Open HR Dashboard
+            </a>
+        </div>
+
+        <h1>AI Resume Screening System</h1>
+
+        <p>
+            Upload a job description and candidate resumes
+            to find the most suitable candidates.
+        </p>
+
+        <div class="form-section">
+
+            <label for="jobDescription">
+                Job Description / Required Role
+            </label>
+
+            <textarea
+                id="jobDescription"
+                placeholder="Paste the job description or role requirements here..."
+            ></textarea>
+
+
+            <label for="resumes">
+                Upload Resumes (PDF)
+            </label>
+
+            <input
+                type="file"
+                id="resumes"
+                multiple
+                accept=".pdf"
+            >
+
+            <div id="fileListContainer" class="file-list-preview"></div>
+
+            <button id="analyzeBtn">
+                🚀 Upload & Screen Candidates
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

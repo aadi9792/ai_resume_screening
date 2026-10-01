@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HR Dashboard | AI Resume Screening</title>
+
+    <link rel="stylesheet" href="hr-dashboard.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">AI</div>
+
+                <div>
+                    <h2>HireAI</h2>
+                    <span>Resume Screening</span>
+                </div>
+            </div>
+
+            <nav>
+
+                <a href="#" class="nav-item active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>👥</span>
+                    Candidates
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>💼</span>
+                    Job Roles
+                </a>
+
+                <a href="#" id="sidebarAiScreeningBtn" class="nav-item">
+                    <span>✨</span>
+                    AI Shortlisting
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>📊</span>
+                    Analytics
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+                <div class="hr-profile">
+
+                    <div class="avatar">HR</div>
+
+                    <div>
+                        <strong>HR Manager</strong>
+                        <small>Administrator</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+                    <h1>HR Dashboard</h1>
+                    <p>Manage and screen your candidates efficiently.</p>
+                </div>
+
+                <div class="top-actions">
+
+                    <button class="icon-btn">
+                        🔔
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="user">
+                        <div class="avatar">HR</div>
+
+                        <div>
+                            <strong>HR Manager</strong>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- STATISTICS -->
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        👥
+                    </div>
+
+                    <div>
+                        <span>Total Applicants</span>
+                        <h2 id="totalApplicants">0</h2>
+                        <small>All applications</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        💼
+                    </div>
+
+                    <div>
+                        <span>Active Roles</span>
+                        <h2 id="totalRoles">0</h2>
+                        <small>Job positions</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Shortlisted</span>
+                        <h2 id="shortlisted">0</h2>
+                        <small>Selected candidates</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⚡
+                    </div>
+
+                    <div>
+                        <span>AI Screened</span>
+                        <h2 id="aiScreened">0</h2>
+                        <small>AI processed</small>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CANDIDATES SECTION -->
+            <section class="candidate-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Candidate Applications</h2>
+                        <p>Review candidates who have applied for your job roles.</p>
+                    </div>
+
+                    <div class="header-action-group">
+                        <button id="openAiShortlistBtn" class="ai-assistant-btn" title="Open AI Shortlist Assistant">
+                            <span class="ai-sparkle">✨</span>
+                            <span class="ai-btn-text">AI Shortlist Assistant</span>
+                            <span id="aiShortlistCountBadge" class="ai-badge-counter">0</span>
+                        </button>
+
+                        <a href="index.html" class="primary-btn upload-nav-btn">
+                            + Upload Resumes
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- FILTERS -->
+                <div class="filters">
+
+                    <div class="search-box">
+
+                        <span>🔍</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search candidate by name or email..."
+                        >
+
+                    </div>
+
+
+                    <select id="roleFilter">
+
+                        <option value="all">
+                            All Roles
+                        </option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Applied">
+                            Applied
+                        </option>
+
+                        <option value="Shortlisted">
+                            Shortlisted
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                    <button id="aiFilterBtn" class="ai-filter-toggle" title="Filter to show only AI recommended candidates">
+                        <span class="ai-sparkle-sm">✨</span> AI Recommended (≥70%)
+                    </button>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Candidate</th>
+
+                                <th>Applied Role</th>
+
+                                <th>Skills</th>
+
+                                <th>Status</th>
+
+                                <th>AI Match</th>
+
+                                <th>Applied On</th>
+
+                                <th>AI Shortlist & Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="candidateTable">
+
+                            <tr>
+
+                                <td colspan="7" class="loading">
+                                    Loading candidates...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- CANDIDATE MODAL -->
+    <div id="candidateModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-btn"
+                onclick="closeModal()">
+                ×
+            </button>
+
+            <div id="candidateDetails"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI SHORTLIST ASSISTANT MODAL -->
+    <div id="aiShortlistModal" class="modal">
+
+        <div class="modal-content ai-modal-content">
+
+            <button
+                class="close-btn"
+                onclick="closeAiShortlistModal()">
+                ×
+            </button>
+
+            <div id="aiShortlistContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="hr-dashboard.js"></script>
+
+</body>
+
+</html>
