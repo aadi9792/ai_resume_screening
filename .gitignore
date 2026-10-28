@@ -3,19 +3,33 @@ node_modules/
 backend/node_modules/
 package-lock.json.bak
 
-# Environment variables & API keys (Never commit secrets!)
+# Environment variables, Secrets & API keys (Never commit secrets!)
 .env
 .env.*
+*.env
 backend/.env
 backend/.env.*
 !.env.example
 !backend/.env.example
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+credentials.json
+service-account*.json
+token.json
 
-# Uploaded resumes and candidate documents (Privacy & storage)
+# Uploaded resumes and candidate documents (Strict privacy protection)
 uploads/*
 !uploads/.gitkeep
 backend/uploads/*
 !backend/uploads/.gitkeep
+*.pdf
+*.docx
+*.doc
+*.rtf
 
 # Logs & debugging
 *.log

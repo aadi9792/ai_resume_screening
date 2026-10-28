@@ -1,10 +1,22 @@
-
+# Environment & Secrets
 .env
 .env.*
+*.env
 !.env.example
-backend/.env
-backend/.env.*
-!backend/.env.example
+*.pem
+*.key
+credentials.json
+
+# Dependencies
 node_modules/
-backend/node_modules/
-backend/uploads/
+
+# Uploaded candidate resumes
+uploads/*
+!uploads/.gitkeep
+*.pdf
+*.docx
+*.doc
+
+# Logs
+*.log
+logs/
